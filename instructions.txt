@@ -1,0 +1,38 @@
+self-sign cert:
+
+create certs and trust:
+
+    dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\WeatherAPI.pfx -p <password>
+    dotnet dev-certs https --trust
+
+    POWERSHELL:
+    docker run -p 8081:80 -p 8082:443 -e ASPNETCORE_URLS="https://+;http://+" -e ASPNETCORE_HTTPS_PORT=8082 -e ASPNETCORE_ENVIRONMENT=Development -v $env:APPDATA\microsoft\UserSecrets\:/root/.microsoft/usersecrets -v $env:USERPROFILE\.aspnet\https:/root/.aspnet/https/ ijanzz5621/netcore-https
+
+Note: The naming for the certificate.pfx must match with naming on the startup dll. eg:
+
+    Cert Name           DllName             Status
+    WeatherAPI.pfx      WeatherAPI.dll      valid
+    weatherapi.pfx      WeatherAPI.dll      invalid
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
