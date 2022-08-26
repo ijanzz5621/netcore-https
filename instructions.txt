@@ -15,7 +15,12 @@ Note: The naming for the certificate.pfx must match with naming on the startup d
     weatherapi.pfx      WeatherAPI.dll      invalid
 
 
-
+# Upload to git
+git init
+git add -A
+git commit -m 'Added my project'
+git remote add origin git@github.com:sammy/my-new-project.git
+git push -u -f origin main
 
 
 
